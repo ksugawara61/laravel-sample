@@ -35,10 +35,10 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-      - name: DB migrate
-        run: composer migration
       - name: Build for test
         run: composer install
+      - name: DB migrate
+        run: composer migration
       - name: Run unittest
         run: composer unittest
       - name: Archive coverage results
