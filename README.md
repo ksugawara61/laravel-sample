@@ -2,6 +2,13 @@
 
 ## コマンド
 
+- バージョン確認
+
+```
+$ ./vendor/bin/sail artisan -V
+Laravel Framework 8.73.1
+```
+
 - 起動
 
 ```
@@ -41,10 +48,20 @@ sample_redis_1          docker-entrypoint.sh redis ...   Up (healthy)   0.0.0.0:
 sample_selenium_1       /opt/bin/entry_point.sh          Up             4444/tcp, 5900/tcp
 ```
 
+- 対話的に検証
+
+```
+ ./vendor/bin/sail artisan tinker
+Psy Shell v0.10.9 (PHP 8.0.13 — cli) by Justin Hileman
+>>> exit
+Exit:  Goodbye
+```
+### DB
+
 - MySQLへ接続
 
 ```
- ./vendor/bin/sail mysql
+$ ./vendor/bin/sail mysql
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 10
 Server version: 8.0.27 MySQL Community Server - GPL
@@ -58,6 +75,34 @@ owners.
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 mysql>
+```
+
+- rootでログイン
+
+```
+$ docker exec -it sample_mysql_1 mysql -u root -p'password'
+```
+
+- tableのmigrationファイルを作成
+
+```
+$ ./vendor/bin/sail artisan make:migration create_customers_table
+Created Migration: 2021_11_23_090010_create_customers_table
+```
+
+- migration
+
+```
+$ ./vendor/bin/sail artisan migrate
+Migrating: 2021_11_23_090010_create_customers_table
+Migrated:  2021_11_23_090010_create_customers_table (43.00ms)
+```
+
+- Factoryの作成
+
+```
+$ ./vendor/bin/sail artisan make:factory EloquentCustomerFactory
+Factory created successfully.
 ```
 
 ### テストの作成
@@ -87,3 +132,7 @@ $ ./vendor/bin/sail test
 ```
 $ ./vendor/bin/sail test tests/Feature/HomeTest.php
 ```
+
+## 参考
+
+- https://zenn.dev/rabit334/articles/9eb078c128fb72
