@@ -26,8 +26,8 @@ jobs:
             ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
       - name: Build for test
         run: composer install
-      - name: Run test
-        run: composer test
+      - name: Run unittest
+        run: composer unittest
       - name: Archive coverage results
         uses: actions/upload-artifact@v2
         if: success()

@@ -46,8 +46,8 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
-        "test": [
-            "@php artisan test --coverage-html coverage"
+        "unittest": [
+            "@php artisan test tests/Unit/ --coverage-html coverage"
         ]
     },
     "extra": {
