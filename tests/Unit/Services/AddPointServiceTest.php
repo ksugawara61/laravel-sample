@@ -4,7 +4,6 @@ namespace Tests\Unit;
 
 use App\Models\EloquentCustomer;
 use App\Models\EloquentCustomerPoint;
-use App\Models\EloquentCustomerPointEvent;
 use App\Models\PointEvent;
 use App\Services\AddPointService;
 use Carbon\CarbonImmutable;
