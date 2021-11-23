@@ -50,7 +50,7 @@
             "@php artisan test tests/Unit/ --coverage-html coverage"
         ],
         "migration": [
-            "@php artisan migrate:refresh --force"
+            "@php artisan migrate:refresh --env=test"
         ]
     },
     "extra": {
