@@ -59,3 +59,31 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 mysql>
 ```
+
+### テストの作成
+
+- Unitテスト
+
+```
+$ ./vendor/bin/sail artisan make:test CalculatePointServiceTest --unit
+```
+
+- Featureテスト
+
+```
+$ ./vendor/bin/sail artisan make:test HomeTest
+```
+
+### テストの実行
+
+- 全体テスト
+
+```
+$ ./vendor/bin/sail test
+```
+
+- テストを指定
+
+```
+$ ./vendor/bin/sail test tests/Feature/HomeTest.php
+```
