@@ -8,6 +8,17 @@ on:
 jobs:
   test:
     runs-on: ubuntu-20.04
+    services:
+      db:
+        image: mysql:8.0
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: root_password
+          MYSQL_DATABASE: sample
+          MYSQL_USER: sail
+          MYSQL_PASSWORD: password
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     timeout-minutes: 10
     steps:
       - name: Checkout code
@@ -24,6 +35,8 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+      - name: DB migrate
+        run: composer migration
       - name: Build for test
         run: composer install
       - name: Run unittest

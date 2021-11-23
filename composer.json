@@ -48,6 +48,9 @@
         ],
         "unittest": [
             "@php artisan test tests/Unit/ --coverage-html coverage"
+        ],
+        "migration": [
+            "@php artisan migrate:refresh"
         ]
     },
     "extra": {
