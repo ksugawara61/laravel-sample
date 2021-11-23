@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Exceptions\PreConditionException;
+use App\Exceptions\PreconditionException;
 
 final class CalculatePointService
 {
