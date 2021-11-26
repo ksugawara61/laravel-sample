@@ -57,7 +57,7 @@
             "@php artisan migrate:refresh --env=testing"
         ],
         "lint": [
-            "vendor/bin/phpcs --standard=PSR12 --colors app tests"
+            "vendor/bin/phpcs -p --standard=PSR12 --colors app tests"
         ],
         "format": [
             "vendor/bin/phpcbf --standard=PSR12 --colors app tests"
