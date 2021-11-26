@@ -42,7 +42,7 @@ jobs:
       - name: DB migrate
         run: composer migration:test
       - name: Run unittest
-        run: composer unittest
+        run: composer test:unit
       - name: Archive coverage results
         uses: actions/upload-artifact@v2
         if: success()
