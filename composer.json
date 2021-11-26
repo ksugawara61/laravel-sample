@@ -18,7 +18,8 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
-        "phpunit/phpunit": "^9.5.10"
+        "phpunit/phpunit": "^9.5.10",
+        "squizlabs/php_codesniffer": "^3.6"
     },
     "autoload": {
         "psr-4": {
@@ -49,8 +50,14 @@
         "unittest": [
             "@php artisan test tests/Unit/ --coverage-html coverage"
         ],
-        "migration": [
-            "@php artisan migrate:refresh --env=test"
+        "migration:test": [
+            "@php artisan migrate:refresh --env=testing"
+        ],
+        "lint": [
+            "vendor/bin/phpcs --standard=PSR12 app"
+        ],
+        "format": [
+            "vendor/bin/phpcbf --standard=PSR12 app"
         ]
     },
     "extra": {

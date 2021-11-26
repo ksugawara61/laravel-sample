@@ -8,28 +8,28 @@ use App\Exceptions\PreconditionException;
 
 final class CalculatePointService
 {
-  /**
-   * ポイント計算
-   *
-   * @param integer $amount
-   * @return integer
-   */
-  public static function calcPoint(int $amount): int
-  {
-    if ($amount < 0) {
-      throw new PreconditionException('購入金額が負の数');
-    }
+    /**
+     * ポイント計算
+     *
+     * @param  integer $amount
+     * @return integer
+     */
+    public static function calcPoint(int $amount): int
+    {
+        if ($amount < 0) {
+            throw new PreconditionException('購入金額が負の数');
+        }
 
-    if ($amount < 1000) {
-      return 0;
-    }
+        if ($amount < 1000) {
+            return 0;
+        }
 
-    if ($amount < 10000) {
-      $basePoint = 1;
-    } else {
-      $basePoint = 2;
-    }
+        if ($amount < 10000) {
+            $basePoint = 1;
+        } else {
+            $basePoint = 2;
+        }
 
-    return intval($amount / 100) * $basePoint;
-  }
+        return intval($amount / 100) * $basePoint;
+    }
 }
