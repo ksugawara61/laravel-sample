@@ -34,10 +34,11 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(
-            function (Throwable $e) {
-                //
-            }
-        );
+        $this->renderable(function (PreconditionException $e) {
+            return response()->json(
+                ['message' => trans($e->getMessage())],
+                \Symfony\Component\HttpFoundation\Response::HTTP_BAD_REQUEST
+            );
+        });
     }
 }
