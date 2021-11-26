@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class CalculatePointServiceTest extends TestCase
 {
-    public function dataProvider_for_calcPoint(): array
+    public function dataProviderForCalcPoint(): array
     {
         return [
             '購入金額が0なら0ポイント' => [0, 0],
@@ -21,7 +21,7 @@ class CalculatePointServiceTest extends TestCase
 
     /**
      * @test
-     * @dataProvider dataProvider_for_calcPoint
+     * @dataProvider dataProviderForCalcPoint
      */
     public function calcPoint(int $expected, int $amount)
     {
@@ -33,7 +33,7 @@ class CalculatePointServiceTest extends TestCase
     /**
      * @test
      */
-    public function calcPoint_購入金額が負の数なら例外をスロー()
+    public function calcPointThrowError()
     {
         $this->expectException(PreconditionException::class);
         $this->expectExceptionMessage('購入金額が負の数');

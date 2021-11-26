@@ -21,7 +21,7 @@ class TemplateMethodTest extends TestCase
     /**
      * @test
      */
-    public function テストメソッド1()
+    public function method1()
     {
         echo __METHOD__, PHP_EOL;
         $this->assertTrue(true);
@@ -30,7 +30,7 @@ class TemplateMethodTest extends TestCase
     /**
      * @test
      */
-    public function テストメソッド2()
+    public function method2()
     {
         echo __METHOD__, PHP_EOL;
         $this->assertTrue(true);

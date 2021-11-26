@@ -14,7 +14,7 @@ class AddPointServiceTest extends TestCase
 {
     use RefreshDatabase;
 
-    const CUSTOMER_ID = 1;
+    public const CUSTOMER_ID = 1;
 
     protected function setUp(): void
     {
@@ -60,13 +60,13 @@ class AddPointServiceTest extends TestCase
                 'point'       => $event->getPoint(),
                 'created_at'  => $event->getCreatedAt()
             ]
-            );
+        );
         $this->assertDatabaseHas(
             'customer_points',
             [
                 'customer_id' => self::CUSTOMER_ID,
                 'point'       => 110
             ]
-            );
+        );
     }
 }

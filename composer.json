@@ -54,10 +54,10 @@
             "@php artisan migrate:refresh --env=testing"
         ],
         "lint": [
-            "vendor/bin/phpcs --standard=PSR12 app"
+            "vendor/bin/phpcs --standard=PSR12 --colors app tests"
         ],
         "format": [
-            "vendor/bin/phpcbf --standard=PSR12 app"
+            "vendor/bin/phpcbf --standard=PSR12 --colors app tests"
         ]
     },
     "extra": {
