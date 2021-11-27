@@ -3,6 +3,7 @@
 use App\Http\Actions\AddPointAction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,8 @@ Route::get('/ping', function () {
     return response()->json(['message' => 'pong']);
 });
 Route::put('/customers/add_point', AddPointAction::class);
+Route::post('/send-email', function (Request $request) {
+    $mail = new App\Mail\Sample();
+    Mail::to($request->get('to'))->send($mail);
+    return response()->json('ok');
+});
