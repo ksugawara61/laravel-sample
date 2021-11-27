@@ -41,8 +41,8 @@ jobs:
         run: composer lint
       - name: DB migrate
         run: composer migration:test
-      - name: Run unittest
-        run: composer test:unit
+      - name: Run test
+        run: composer test
       - name: Archive coverage results
         uses: actions/upload-artifact@v2
         if: success()
