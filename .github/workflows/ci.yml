@@ -8,6 +8,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-20.04
+    env:
+      APP_KEY: base64:kQB6o4B2rPHbzGonOyYEXkDy1PtX8Qi7oVjpOXc9Q3A=
     services:
       db:
         image: mysql:8.0
@@ -16,7 +18,7 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: root_password
           MYSQL_DATABASE: sample
-          MYSQL_USER: sail
+          MYSQL_USER: forge
           MYSQL_PASSWORD: password
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     timeout-minutes: 10
